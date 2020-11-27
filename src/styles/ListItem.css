@@ -1,0 +1,24 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 14px;
+  margin-top: 8px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.list-item-input {
+  width: 24px;
+  display: flex;
+}
+
+.list-item-label {
+  flex: 1;
+  text-align: left;
+  position: relative;
+}
+
+.list-item-active {
+  text-decoration: line-through;
+}
