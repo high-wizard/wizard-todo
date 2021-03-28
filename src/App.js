@@ -79,7 +79,6 @@ function App() {
               text={text}
               onChangeHandler={onChangeHandler}
               pushTodo={pushTodo}
-              removeCheckedTodos={removeCheckedTodos}
             />
             <List todos={todos} toggleActive={toggleActive}/>
           </div>
