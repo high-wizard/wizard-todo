@@ -4,7 +4,6 @@ import './App.css'
 import Container from './components/Container'
 import ListHeader from './components/ListHeader'
 import List from './components/List'
-import SideButtons from './components/SideButtons'
 
 // todoを特定するための一意なキーに使用する
 let currentId = 0;
@@ -42,39 +41,18 @@ function App() {
     currentId += 1;
   };
 
-  // checkboxのアクティブをトグルさせる関数
-  const toggleActive = (id) => {
-    // todosからidが一致したtodoのアクティブ状態だけを反転させて返す
-    const filtedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        // todoのcheckedを反転して上書きする
-        return {
-          ...todos,
-          checked: !todo.checked,
-        };
-      }
-      return todo;
-    });
-
-    // 新しいtodosをセットする
-    setTodos(filtedTodos);
-  }
-
- 
-
   return (
     <div className="App">
       <Container>
         <h1 className="title">Example Todo</h1>
         <div className="content">
-          <SideButtons/>
           <div className="list">
             <ListHeader
               text={text}
               onChangeHandler={onChangeHandler}
               pushTodo={pushTodo}
             />
-            <List todos={todos} toggleActive={toggleActive} />
+            <List todos={todos} />
           </div>
         </div>
       </Container>
