@@ -10,19 +10,23 @@ import SideButtons from './components/SideButtons'
 let currentId = 0;
 
 function App() {
+  // todoリストのデータが入るstate
   const [todos, setTodos] = useState([]);
-
+  // todoリスト自身が入るstate
   const [text, setText] = useState("");
 
   const onChangeHandler = (e) => {
     setText(e.target.value);
   };
 
+  // 新しいtodoを追加する関数
   const pushTodo = (e) => {
+    // イベントのデフォルト動作を発生させない
     e.preventDefault();
     if (!text) {
       return;
     }
+    // 新しいTodoの作成
     const newTodo = {
       id: currentId,
       checked: false,
@@ -30,16 +34,20 @@ function App() {
       isActive: true,
     };
   
+    //　入力欄と対応するstateをリセットする
     setText("");
-  
+    // 今までのtodosと新しく作ったtodoを合成する
     setTodos([...todos, newTodo]);
-
+    // 次のオリジナルキーが重複しないようにインクリメントする
     currentId += 1;
   };
 
+  // checkboxのアクティブをトグルさせる関数
   const toggleActive = (id) => {
+    // todosからidが一致したtodoのアクティブ状態だけを反転させて返す
     const filtedTodos = todos.map((todo) => {
       if (todo.id === id) {
+        // todoのcheckedを反転して上書きする
         return {
           ...todos,
           checked: !todo.checked,
@@ -48,6 +56,7 @@ function App() {
       return todo;
     });
 
+    // 新しいtodosをセットする
     setTodos(filtedTodos);
   }
 
