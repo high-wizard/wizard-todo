@@ -1,12 +1,12 @@
 import React from "react"
 import "../styles/ListHeader.css"
 
-const ListHeader = () => {
+const ListHeader = ({text, onChangeHandler, pushTodo}) => {
   return (
     <div className="list-header">
-      <form className="list-header-form">
-        <input className="list-header-input" type="text"/>
-        <button className="list-header-button">＋</button>
+      <form className="list-header-form" onSubmit={pushTodo}>
+        <input className="list-header-input" type="text" value={text} onChange={onChangeHandler} />
+        <button className="list-header-button" onClick={pushTodo} >＋</button>
       </form>
     </div>
   )
