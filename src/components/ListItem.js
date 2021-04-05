@@ -16,10 +16,6 @@ const ListItem = ({todo, toggleActive}) => {
       {todo.isActive &&
         <li 
           className="list-item" 
-          initial={{ opaciity: 0, y: "20px"}}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{opacity: 0, y:"20px"}}
-          transition={{ duration: .3}}
         >
         <input
           className="list-item-input"
