@@ -20,3 +20,6 @@
 }
 
 /* classを追加 */
+.list-item-active{
+  text-decoration: line-through;
+}

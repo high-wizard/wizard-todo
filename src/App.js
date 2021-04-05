@@ -94,7 +94,6 @@ function App() {
     setTodos(disabledTodos)
   };
  
-
   return (
     <div className="App">
       <Container>

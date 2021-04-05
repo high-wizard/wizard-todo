@@ -1,4 +1,5 @@
 import React from 'react'
+import { AnimatePresence, motion } from "framer-motion";
 import '../styles/ListItem.css'
 
 const ListItem = ({todo, toggleActive}) => {
@@ -12,9 +13,9 @@ const ListItem = ({todo, toggleActive}) => {
   }`;
 
   return (
-    <ul>
+    <AnimatePresence>
       {todo.isActive &&
-        <li 
+        <motion.li 
           className="list-item" 
           initial={{ opaciity: 0, y: "20px"}}
           animate={{ opacity: 1, y: 0 }}
@@ -31,9 +32,9 @@ const ListItem = ({todo, toggleActive}) => {
         <label className={labelStyle} htmlFor={todo.id}>
           {truncate(todo.text, 30)}
         </label>
-      </li>
+      </motion.li>
       }
-    </ul>  
+    </AnimatePresence>
   )
 }
 
