@@ -49,7 +49,7 @@ function App() {
       if (todo.id === id) {
         // todoのcheckedを反転して上書きする
         return {
-          ...todos,
+          ...todo,
           checked: !todo.checked,
         };
       }
