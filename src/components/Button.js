@@ -1,9 +1,9 @@
 import React from 'react'
 import "../styles/Button.css"
 
-const Button = ({children}) => {
+const Button = ({children, removeCheckedTodos}) => {
   return (
-    <button className="common-button">
+    <button className="common-button" onClick={removeCheckedTodos}>
       {children}
     </button>
   )

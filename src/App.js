@@ -60,6 +60,39 @@ function App() {
     setTodos(filtedTodos);
   }
 
+  // 削除前にアニメーションフラグを切り替える
+  const disableTodos = () => {
+    // 削除予定のtodoを非アクティブ化
+    const disabledTodos = todos.map((todo) => {
+      if(todo.checked) {
+        return {
+          ...todo,
+          isActive: false,
+        };
+      }
+      // 削除予定でないものはノータッチ
+      return todo
+    });
+
+    // 処理済みのtodosを返す
+    return disabledTodos
+  } 
+
+  // checkboxがアクティブの要素だけ全て削除する
+  const removeCheckedTodos = () => {
+    // アニメーション終了を待って削除
+    setTimeout(() => {
+      // checkboxがアクティブの要素以外のtodosのコピーを返す
+      const filtedTodos = todos.filter((todo) => !todo.checked);
+      // 新しいtodosをセットする
+      setTodos(filtedTodos);
+    }, 300);
+
+    // 削除予定のtodosからアニメーションのためのフラグを切り替える
+    const disabledTodos = disableTodos()
+    // 新しいtodosをセットする(削除処理はここでは関係なし)
+    setTodos(disabledTodos)
+  };
  
 
   return (
@@ -67,7 +100,7 @@ function App() {
       <Container>
         <h1 className="title">Example Todo</h1>
         <div className="content">
-          <SideButtons/>
+          <SideButtons removeCheckedTodos={removeCheckedTodos} />
           <div className="list">
             <ListHeader
               text={text}

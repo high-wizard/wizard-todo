@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons"
 import Button from './Button'
 
-const SideButtons = () => {
+const SideButtons = (removeCheckedTodos) => {
   return (
     <div className="side-buttons">
       <ul>
         <li className="side-button">
-         <Button>
+         <Button removeCheckedTodos={removeCheckedTodos}>
           <FontAwesomeIcon className="delete-all-icon" icon={faTrashAlt} />
          </Button>
         </li>
